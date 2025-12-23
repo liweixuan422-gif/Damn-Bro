@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>跑車介紹</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+        }
+        .car-img {
+            height: 220px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+    <h1 class="text-center mb-4">🏎️ 超跑介紹</h1>
+
+    <div class="card mx-auto" style="max-width: 400px;">
+        <img id="carImage" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+             class="card-img-top car-img" alt="跑車">
+
+        <div class="card-body text-dark">
+            <h5 class="card-title" id="carName">Ferrari 488 GTB</h5>
+            <p class="card-text" id="carDesc">
+                Ferrari 488 GTB 是一款義大利超級跑車，結合速度與優雅設計。
+            </p>
+
+            <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item" id="carSpeed">最高時速：330 km/h</li>
+                <li class="list-group-item" id="carEngine">引擎：V8 雙渦輪</li>
+                <li class="list-group-item" id="carZero">0–100 km/h：3.0 秒</li>
+            </ul>
+
+            <div class="d-grid">
+                <button class="btn btn-danger" onclick="changeCar()">
+                    切換跑車
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const cars = [
+        {
+            name: "Ferrari 488 GTB",
+            desc: "Ferrari 488 GTB 是一款義大利超級跑車，結合速度與優雅設計。",
+            speed: "最高時速：330 km/h",
+            engine: "引擎：V8 雙渦輪",
+            zero: "0–100 km/h：3.0 秒",
+            img: "https://autos.yahoo.com.tw//p/r/w880/car-trim/July2019/8632420af7f6d09706a4e8a81506cf47.jpeg"
+        },
+        {
+            name: "Lamborghini Huracán",
+            desc: "Huracán 以狂野外型與自然進氣 V10 引擎聞名。",
+            speed: "最高時速：325 km/h",
+            engine: "引擎：V10",
+            zero: "0–100 km/h：2.9 秒",
+            img: "https://2gamesome.com.tw/uploads/image/8f12fd61454ddcf20c88e95db17d7b4e.jpg"
+        },
+        {
+            name: "Porsche 911 Turbo S",
+            desc: "911 Turbo S 結合日常實用性與極致性能。",
+            speed: "最高時速：330 km/h",
+            engine: "引擎：水平對臥 6 缸",
+            zero: "0–100 km/h：2.7 秒",
+            img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+        }
+    ];
+
+    let index = 0;
+
+    function changeCar() {
+        index = (index + 1) % cars.length;
+        const car = cars[index];
+
+        document.getElementById("carName").textContent = car.name;
+        document.getElementById("carDesc").textContent = car.desc;
+        document.getElementById("carSpeed").textContent = car.speed;
+        document.getElementById("carEngine").textContent = car.engine;
+        document.getElementById("carZero").textContent = car.zero;
+        document.getElementById("carImage").src = car.img;
+    }
+</script>
+
+</body>
+</html>
